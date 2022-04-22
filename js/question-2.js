@@ -22,9 +22,9 @@ async function getApiRawg() {
       }
 
       resultsContainer.innerHTML += `<div class="result">
-                                        <div>Name: ${games[i].name}</div>
-                                        <div>Rating: ${games[i].rating}</div>
-                                        <div>Tags: ${games[i].tags.length}</div>
+                                        <h2>Name: ${games[i].name}</h2>
+                                        <h3>Rating: ${games[i].rating}</h3>
+                                        <h4>Tags: ${games[i].tags.length}</h4>
                                     </div>`;
     }
   } catch (error) {
