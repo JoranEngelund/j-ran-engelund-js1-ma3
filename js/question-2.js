@@ -2,9 +2,7 @@
 
 const loader = document.querySelector(".loader");
 
-function stopLoader() {
-  loader.classList.remove("loader");
-}
+stopLoader = () => loader.classList.remove("loader");
 
 const url =
   "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=0b59517753684cbb8bcc637960af709a";
@@ -25,12 +23,12 @@ async function getApiRawg() {
 
       resultsContainer.innerHTML += `<div class="result">
                                         <div>Name: ${games[i].name}</div>
-                                        <div>Rating: ${games[i].rating}
+                                        <div>Rating: ${games[i].rating}</div>
                                         <div>Tags: ${games[i].tags.length}</div>
                                     </div>`;
     }
   } catch (error) {
-    resultsContainer.innerHTML += `<div class="result">An error has occurred: ${error} </div>`;
+    resultsContainer.innerHTML += `<div class="result">An error has occurred: ${error}</div>`;
   }
 }
 
