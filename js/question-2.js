@@ -28,8 +28,7 @@ async function getApiRawg() {
                                     </div>`;
     }
   } catch (error) {
-    stopLoader();
-    resultsContainer.innerHTML += `<div class="result">An error has occurred: ${error}</div>`;
+    resultsContainer.innerHTML = `<div class="result">An error has occurred: ${error}</div>`;
   }
 }
 
