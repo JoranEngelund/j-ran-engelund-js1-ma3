@@ -4,14 +4,17 @@ const loader = document.querySelector(".loader");
 
 stopLoader = () => loader.classList.remove("loader");
 
+const proxy = "https://noroffcors.herokuapp.com/";
 const url =
   "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=0b59517753684cbb8bcc637960af709a";
+
+const corsUrl = proxy + url;
 
 const resultsContainer = document.querySelector(".results");
 
 async function getApiRawg() {
   try {
-    const response = await fetch(url);
+    const response = await fetch(corsUrl);
     const data = await response.json();
     stopLoader();
     const games = data.results;
@@ -28,6 +31,7 @@ async function getApiRawg() {
                                     </div>`;
     }
   } catch (error) {
+    stopLoader();
     resultsContainer.innerHTML += `<div class="result">An error has occurred: ${error}</div>`;
   }
 }
